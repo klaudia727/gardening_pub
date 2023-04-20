@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title th:text="|${flower.name} - Gospodarstwo ogrodnicze|">Nazwa rośliny</title>
+</head>
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <section class="flower">
+            <div class="flower-summary">
+                <img src="../static/img/image-placeholder.png"
+                     th:src="@{/img/image-placeholder.png}"
+                     alt="nazwa rośliny"
+                     class="flower-summary-cover"/>
+                <div class="flower-summary-info">
+                    <h1 class="flower-summary-title" th:text="${flower.name}">Polska nazwa rośliny</h1>
+                    <p class="flower-summary-original-title" th:text="${flower.originalName}">Nazwa łacińska</p>
+                    <p class="flower-summary-item">Okres kwitnienia</p>
+                    <p class="flower-summary-item">Kategoria: <a href="#"
+                                                                        th:href="@{|/kategoria/${flower.type}|}"
+                                                                        th:text="${flower.type}">Rabatowe wiszące</a>
+                    </p>
+                    <p class="flower-summary-item" th:text="${flower.shortDescription}" >
+                        Krótki opis rośliny.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="flower-section">
+            <h2 class="flower-section-heading">Opis</h2>
+            <p th:text="${flower.description}">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at,
+                tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+        </section>
+
+        <section class="flower-section">
+            <h2 class="flower-section-heading">Galeria zdjęć</h2>
+<!--            <img src="../static/img/image-placeholder.png"-->
+<!--                 th:src="@{/img/image-placeholder.png}"-->
+<!--                 alt="kwiat"-->
+<!--                 th:alt="${flower.name}"-->
+<!--                 />-->
+            <a target="_blank" href="../static/img/gallery/image-placeholder.png"
+                                th:href="@{/img/gallery/image-placeholder.png}">
+                <img src="../static/img/gallery_miniatures/image-placeholder.png"
+                     th:src="@{/img/gallery_miniatures/image-placeholder.png}"
+                     alt="Tekst alternatywny"
+                     th:alt="${flower.name}"
+                     border="0"></a>
+            <a target="_blank" href="../static/img/gallery/image-placeholder.png"
+               th:href="@{/img/gallery/image-placeholder.png}">
+                <img src="../static/img/gallery_miniatures/image-placeholder.png"
+                     th:src="@{/img/gallery_miniatures/image-placeholder.png}"
+                     alt="Tekst alternatywny"
+                     th:alt="${flower.name}"
+                     border="0"></a>
+            <a target="_blank" href="../static/img/gallery/image-placeholder.png"
+               th:href="@{/img/gallery/image-placeholder.png}">
+                <img src="../static/img/gallery_miniatures/image-placeholder.png"
+                     th:src="@{/img/gallery_miniatures/image-placeholder.png}"
+                     alt="Tekst alternatywny"
+                     th:alt="${flower.name}"
+                     border="0"></a>
+            <a target="_blank" href="../static/img/gallery/image-placeholder.png"
+               th:href="@{/img/gallery/image-placeholder.png}">
+                <img src="../static/img/gallery_miniatures/image-placeholder.png"
+                     th:src="@{/img/gallery_miniatures/image-placeholder.png}"
+                     alt="Tekst alternatywny"
+                     th:alt="${flower.name}"
+                     border="0"></a>
+
+        </section>
+    </main>
+</div>
+</body>
+</html>

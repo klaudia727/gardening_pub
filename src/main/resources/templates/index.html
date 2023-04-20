@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl" xmlns:th="https://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<body>
+<div class="container">
+    <main class="main-content" layout:fragment="content">
+        <h2 class="list-heading" th:text="${heading}">Popularne kwiaty/Kategorie</h2>
+        <p class="list-description" th:text="${description}">Opis sekcji, przykładowo opis kwiatów, albo strony głównej</p>
+        <ul class="flower-list">
+            <li class="flower-list-item" th:each="flower: ${flowers}">
+                <a href="#" th:href="@{|/kwiat/${flower.id}|}">
+                    <img src="../static/img/image-placeholder.png"
+                         th:src="@{/img/image-placeholder.png}"
+                         alt="nazwa rośliny"
+                         class="flower-list-item-image">
+                </a>
+                <div class="flower-list-item-card">
+                    <div class="flower-list-item-content">
+                        <h3 class="flower-list-item-title">
+                            <a href="#" th:href="@{|/kwiat/${flower.id}|}" th:text="${flower.name}">Nazwa rośliny</a>
+                        </h3>
+                        <h4 th:text="${flower.originalName}"> Łacińska nazwa rośliny</h4>
+                        <p th:text="${flower.type}">Kategoria:</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </main>
+</div>
+</body>
+</html>
